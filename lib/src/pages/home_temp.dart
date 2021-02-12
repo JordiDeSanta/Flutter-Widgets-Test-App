@@ -9,7 +9,28 @@ class HomePageTemp extends StatelessWidget {
       appBar: AppBar(
         title: Text('Hello'),
       ),
-      body: ListView(),
+      body: ListView(
+        children: _createItems(),
+      ),
     );
   }
+}
+
+// List texts
+final options = ['One', 'Two', 'Three', 'Four', 'Five'];
+
+List<Widget> _createItems() {
+  List<Widget> finalWidget = new List<Widget>();
+
+  for (var opt in options) {
+    // Setting tempWidget to add to the list
+    final tempWidget = ListTile(
+      title: Text(opt),
+    );
+    // Adding widgets
+    finalWidget.add(tempWidget);
+    finalWidget.add(Divider(height: 40.0));
+  }
+
+  return finalWidget;
 }
