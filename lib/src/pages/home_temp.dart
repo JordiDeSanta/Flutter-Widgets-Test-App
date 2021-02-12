@@ -28,8 +28,8 @@ List<Widget> _createItems() {
       title: Text(opt),
     );
     // Adding widgets
-    finalWidget.add(tempWidget);
-    finalWidget.add(Divider(height: 40.0));
+    finalWidget..add(tempWidget)
+               ..add(Divider(height: 40.0));
   }
 
   return finalWidget;
