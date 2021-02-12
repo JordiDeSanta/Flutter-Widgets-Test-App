@@ -10,7 +10,7 @@ class HomePageTemp extends StatelessWidget {
         title: Text('Hello'),
       ),
       body: ListView(
-        children: _createItems(),
+        children: _createItemsInShort(),
       ),
     );
   }
@@ -28,9 +28,19 @@ List<Widget> _createItems() {
       title: Text(opt),
     );
     // Adding widgets
-    finalWidget..add(tempWidget)
-               ..add(Divider(height: 40.0));
+    finalWidget..add(tempWidget)..add(Divider(height: 40.0));
   }
 
   return finalWidget;
+}
+
+List<Widget> _createItemsInShort() {
+  var widgets = options.map((item) {
+    // Creating Tiles to return
+    return ListTile(
+      title: Text(item),
+    );
+  }).toList(); // Converting in list<widget>
+
+  return widgets;
 }
