@@ -1,4 +1,9 @@
+import 'package:components/src/pages/home_temp.dart';
+// Third Party
 import 'package:flutter/material.dart';
+
+// Own
+import 'src/pages/home_temp.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,16 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Material App Bar'),
-        ),
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
-          ),
-        ),
-      ),
+      home: HomePageTemp(),
     );
   }
 }
