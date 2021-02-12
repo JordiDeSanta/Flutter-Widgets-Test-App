@@ -12,6 +12,19 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Components'),
       ),
+      body: _list(),
     );
   }
+}
+
+Widget _list() {
+  return ListView(
+    children: _items(),
+  );
+}
+
+List<Widget> _items() {
+  return [
+    ListTile(title: Text('Test')),
+  ];
 }
