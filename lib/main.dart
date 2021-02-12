@@ -1,4 +1,3 @@
-import 'package:components/src/pages/home_temp.dart';
 // Third Party
 import 'package:flutter/material.dart';
 
