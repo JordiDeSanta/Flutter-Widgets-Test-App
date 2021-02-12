@@ -37,8 +37,16 @@ List<Widget> _createItems() {
 List<Widget> _createItemsInShort() {
   var widgets = options.map((item) {
     // Creating Tiles to return
-    return ListTile(
-      title: Text(item),
+    return Column(
+      children: [
+        ListTile(
+          title: Text(item),
+          leading: Icon(Icons.accessibility_new_sharp),
+          trailing: Icon(Icons.arrow_right),
+          onTap: () {},
+        ),
+        Divider(),
+      ],
     );
   }).toList(); // Converting in list<widget>
 
