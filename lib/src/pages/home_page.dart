@@ -31,7 +31,14 @@ Widget _list() {
 }
 
 List<Widget> _items(List<dynamic> data) {
-  return [
-    ListTile(title: Text('Test')),
-  ];
+  final List<Widget> options = [];
+
+  data.forEach((option) {
+    final tempWidget = ListTile(
+      title: Text(option.toString()),
+    );
+    options.add(tempWidget);
+  });
+
+  return options;
 }
