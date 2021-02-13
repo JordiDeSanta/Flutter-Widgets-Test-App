@@ -28,13 +28,13 @@ Widget _list() {
     initialData: [],
     builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
       return ListView(
-        children: _items(snapshot.data),
+        children: _items(snapshot.data, context),
       );
     },
   );
 }
 
-List<Widget> _items(List<dynamic> data) {
+List<Widget> _items(List<dynamic> data, BuildContext homeContext) {
   final List<Widget> options = [];
 
   data.forEach((option) {
@@ -42,7 +42,9 @@ List<Widget> _items(List<dynamic> data) {
       title: Text(option['text']),
       leading: getIcon(option['icon']),
       trailing: getIcon('default_arrow'),
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(homeContext, option['route']);
+      },
     );
     options..add(tempWidget)..add(Divider());
   });
