@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Own
 import 'package:components/src/provider/menu_provider.dart';
+import 'package:components/src/utils/icon_string_util.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
@@ -35,9 +36,12 @@ List<Widget> _items(List<dynamic> data) {
 
   data.forEach((option) {
     final tempWidget = ListTile(
-      title: Text(option.toString()),
+      title: Text(option['text']),
+      leading: getIcon(option['icon']),
+      trailing: Icon(Icons.ac_unit),
+      onTap: () {},
     );
-    options.add(tempWidget);
+    options..add(tempWidget)..add(Divider());
   });
 
   return options;
