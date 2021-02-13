@@ -7,7 +7,6 @@ import 'package:components/src/utils/icon_string_util.dart';
 import 'package:components/src/utils/color_palette.dart';
 
 class HomePage extends StatelessWidget {
-  
   const HomePage({Key key}) : super(key: key);
 
   @override
@@ -37,6 +36,11 @@ Widget _list() {
 
 List<Widget> _items(List<dynamic> data, BuildContext homeContext) {
   final List<Widget> options = [];
+
+  // Protecting parameter
+  if (data == null) {
+    return [];
+  }
 
   data.forEach((option) {
     final tempWidget = ListTile(

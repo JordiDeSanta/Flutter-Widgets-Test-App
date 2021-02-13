@@ -48,11 +48,13 @@ Widget _cardTypeTwo(String linkName) {
   return Card(
     child: Column(
       children: [
-
         FadeInImage(
-          placeholder: AssetImage('assets/loading.gif'), 
+          placeholder: AssetImage('assets/loading.gif'),
           image: NetworkImage(links[linkName]),
-          ),
+          height: 300,
+          width: 400,
+          fit: BoxFit.cover,
+        ),
         Container(
           child: Text(linkName),
           padding: EdgeInsets.all(20.0),
