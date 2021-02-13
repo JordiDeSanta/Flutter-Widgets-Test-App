@@ -19,14 +19,18 @@ class HomePage extends StatelessWidget {
 }
 
 Widget _list() {
-  print(menuProvider.options);
-
-  return ListView(
-    children: _items(),
+  return FutureBuilder(
+    future: menuProvider.loadData(),
+    initialData: [],
+    builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
+      return ListView(
+        children: _items(snapshot.data),
+      );
+    },
   );
 }
 
-List<Widget> _items() {
+List<Widget> _items(List<dynamic> data) {
   return [
     ListTile(title: Text('Test')),
   ];
