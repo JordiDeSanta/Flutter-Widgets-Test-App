@@ -38,7 +38,7 @@ List<Widget> _items(List<dynamic> data) {
     final tempWidget = ListTile(
       title: Text(option['text']),
       leading: getIcon(option['icon']),
-      trailing: Icon(Icons.ac_unit),
+      trailing: Icon(Icons.arrow_forward_ios),
       onTap: () {},
     );
     options..add(tempWidget)..add(Divider());
