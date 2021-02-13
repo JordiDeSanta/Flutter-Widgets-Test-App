@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:components/src/provider/menu_provider.dart';
 import 'package:components/src/utils/icon_string_util.dart';
 
+Color appBarColor = Color.fromARGB(255, 64, 157, 196);
+
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
 
@@ -13,6 +15,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Components'),
+        backgroundColor: appBarColor,
       ),
       body: _list(),
     );
@@ -38,7 +41,7 @@ List<Widget> _items(List<dynamic> data) {
     final tempWidget = ListTile(
       title: Text(option['text']),
       leading: getIcon(option['icon']),
-      trailing: Icon(Icons.arrow_forward_ios),
+      trailing: getIcon('default_arrow'),
       onTap: () {},
     );
     options..add(tempWidget)..add(Divider());
