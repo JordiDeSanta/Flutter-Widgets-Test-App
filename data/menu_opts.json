@@ -2,7 +2,7 @@
     "nameApp" : "Components",
     "routes" : [
         {
-            "route" : "alert",
+            "route" : "alers",
             "icon" : "add_alert",
             "text": "Alerts"
         },
