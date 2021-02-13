@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-Color _iconsColor = Color.fromARGB(255, 90, 178, 218);
+import 'color_palette.dart';
 
 final _icons = <String, IconData>{
   "accessibility": Icons.accessibility,
@@ -10,5 +9,5 @@ final _icons = <String, IconData>{
 };
 
 Icon getIcon(String iconName) {
-  return Icon(_icons[iconName], color: _iconsColor);
+  return Icon(_icons[iconName], color: iconsColor);
 }

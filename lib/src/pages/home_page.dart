@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 // Own
 import 'package:components/src/provider/menu_provider.dart';
 import 'package:components/src/utils/icon_string_util.dart';
-
-Color appBarColor = Color.fromARGB(255, 64, 157, 196);
+import 'package:components/src/utils/color_palette.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
