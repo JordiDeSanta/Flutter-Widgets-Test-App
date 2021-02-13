@@ -14,6 +14,31 @@ class CardPage extends StatelessWidget {
         title: Text('Card Page'),
         backgroundColor: appBarColor,
       ),
+      body: ListView(
+        children: [_card()],
+        padding: EdgeInsets.all(10),
+      ),
     );
   }
+}
+
+Widget _card() {
+  return Card(
+    child: Column(
+      children: [
+        ListTile(
+          leading: Icon(Icons.ac_unit),
+          title: Text('Hello bro'),
+          subtitle: Text('How are you and your family?'),
+        ),
+        Row(
+          children: [
+            FlatButton(onPressed: () {}, child: Text("Ok")),
+            FlatButton(onPressed: () {}, child: Text("Cancel")),
+          ],
+          mainAxisAlignment: MainAxisAlignment.end,
+        ),
+      ],
+    ),
+  );
 }
