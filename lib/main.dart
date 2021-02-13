@@ -17,11 +17,16 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       debugShowCheckedModeBanner: false,
       initialRoute: 'home',
+      // Defining routes about a string (name)
       routes: <String, WidgetBuilder>{
         'home': (BuildContext context) => HomePage(),
         'alert': (BuildContext context) => AlertPage(),
         'avatar': (BuildContext context) => AvatarPage(),
         'card': (BuildContext context) => CardPage(),
+      },
+      // When a route isn't defined
+      onGenerateRoute: (settings) {
+        return MaterialPageRoute(builder: (BuildContext context) => AlertPage());
       },
     );
   }

@@ -7,6 +7,7 @@ import 'package:components/src/utils/icon_string_util.dart';
 import 'package:components/src/utils/color_palette.dart';
 
 class HomePage extends StatelessWidget {
+  
   const HomePage({Key key}) : super(key: key);
 
   @override
@@ -27,6 +28,7 @@ Widget _list() {
     initialData: [],
     builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
       return ListView(
+        // Getting a list of the items (buttons)
         children: _items(snapshot.data, context),
       );
     },
@@ -38,6 +40,7 @@ List<Widget> _items(List<dynamic> data, BuildContext homeContext) {
 
   data.forEach((option) {
     final tempWidget = ListTile(
+      // Defining properties (json)
       title: Text(option['text']),
       leading: getIcon(option['icon']),
       trailing: getIcon('default_arrow'),
