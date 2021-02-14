@@ -13,6 +13,16 @@ class AvatarPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Avatar Page'),
         backgroundColor: appBarColor,
+        actions: [
+          Container(
+            padding: EdgeInsets.only(right: 10),
+            child: CircleAvatar(
+              child: Icon(Icons.person),
+              backgroundColor: iconsColor,
+              foregroundColor: cardBGColor,
+            ),
+          ),
+        ],
       ),
     );
   }
