@@ -37,11 +37,6 @@ Widget _list() {
 List<Widget> _items(List<dynamic> data, BuildContext homeContext) {
   final List<Widget> options = [];
 
-  // Protecting parameter
-  if (data == null) {
-    return [];
-  }
-
   data.forEach((option) {
     final tempWidget = ListTile(
       // Defining properties (json)

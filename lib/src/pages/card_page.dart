@@ -16,7 +16,16 @@ class CardPage extends StatelessWidget {
         backgroundColor: appBarColor,
       ),
       body: ListView(
-        children: [_cardTypeOne(), _cardTypeTwo('Air Jordan 1')],
+        children: [
+          _cardTypeOne(),
+          _cardTypeTwo('Air Jordan 1'),
+          _cardTypeOne(),
+          _cardTypeTwo('Air Jordan 1'),
+          _cardTypeOne(),
+          _cardTypeTwo('Air Jordan 1'),
+          _cardTypeOne(),
+          _cardTypeTwo('Air Jordan 1'),
+        ],
         padding: EdgeInsets.all(10),
       ),
     );
@@ -25,6 +34,9 @@ class CardPage extends StatelessWidget {
 
 Widget _cardTypeOne() {
   return Card(
+    color: cardBGColor,
+    clipBehavior: Clip.antiAlias,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
     child: Column(
       children: [
         ListTile(
@@ -46,6 +58,9 @@ Widget _cardTypeOne() {
 
 Widget _cardTypeTwo(String linkName) {
   return Card(
+    color: cardBGColor,
+    clipBehavior: Clip.antiAlias,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
     child: Column(
       children: [
         FadeInImage(
@@ -57,6 +72,7 @@ Widget _cardTypeTwo(String linkName) {
         ),
         Container(
           child: Text(linkName),
+          color: cardBGColor,
           padding: EdgeInsets.all(20.0),
         ),
       ],
