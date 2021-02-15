@@ -10,7 +10,7 @@ class SliderPage extends StatefulWidget {
 }
 
 class _SliderPageState extends State<SliderPage> {
-  double _sliderValue = 0.5;
+  double _sliderValue = 200;
 
   @override
   Widget build(BuildContext context) {
@@ -19,23 +19,40 @@ class _SliderPageState extends State<SliderPage> {
         title: Text('Slider Page'),
         backgroundColor: appBarColor,
       ),
-      body: Column(
-        children: [
-          _createSlider(),
-        ],
+      body: Container(
+        padding: EdgeInsets.only(top: 50),
+        child: Column(
+          children: [
+            _createSlider(),
+            SizedBox(height: 100),
+            _createImage(),
+          ],
+        ),
       ),
     );
   }
 
   Widget _createSlider() {
     return Slider(
+      min: 100,
+      max: 400,
       value: _sliderValue,
+      divisions: 10,
+      label: 'Image Scale',
       onChanged: (alpha) {
         setState(() {
           _sliderValue = alpha;
         });
       },
       activeColor: iconsColor,
+    );
+  }
+
+  Widget _createImage() {
+    return Image(
+      image: AssetImage('assets/scalable-image.jpeg'),
+      width: _sliderValue,
+      fit: BoxFit.contain,
     );
   }
 }
