@@ -49,10 +49,17 @@ class _SliderPageState extends State<SliderPage> {
   }
 
   Widget _createImage() {
-    return Image(
-      image: AssetImage('assets/scalable-image.jpeg'),
+    return AnimatedContainer(
+      curve: Curves.easeIn,
+      duration: Duration(milliseconds: 400),
       width: _sliderValue,
-      fit: BoxFit.contain,
+      height: _sliderValue,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          image: DecorationImage(
+            image: AssetImage('assets/scalable-image.jpeg'),
+            fit: BoxFit.contain,
+          )),
     );
   }
 }
