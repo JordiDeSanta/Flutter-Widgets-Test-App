@@ -71,15 +71,20 @@ class _SliderPageState extends State<SliderPage> {
   }
 
   Widget _createChekbox() {
-    return Center(
-      child: Checkbox(
-        value: _canChangeScale,
-        onChanged: (alpha) {
-          setState(() {
-            _canChangeScale = alpha;
-          });
-        },
-      ),
+    return Row(
+      children: [
+        SizedBox(width: 30),
+        Text('Lock the scale: '),
+        SizedBox(width: 160),
+        Checkbox(
+          value: _canChangeScale,
+          onChanged: (alpha) {
+            setState(() {
+              _canChangeScale = alpha;
+            });
+          },
+        ),
+      ],
     );
   }
 }
