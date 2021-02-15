@@ -1,9 +1,9 @@
 // Third Party
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 // Own
 import 'package:components/src/utils/color_palette.dart';
-import 'package:components/src/utils/links.dart';
 
 class CardPage extends StatelessWidget {
   const CardPage({Key key}) : super(key: key);
@@ -18,13 +18,13 @@ class CardPage extends StatelessWidget {
       body: ListView(
         children: [
           _cardTypeOne(),
-          _cardTypeTwo('Air Jordan 1'),
+          _cardTypeTwo(),
           _cardTypeOne(),
-          _cardTypeTwo('Air Jordan 1'),
+          _cardTypeTwo(),
           _cardTypeOne(),
-          _cardTypeTwo('Air Jordan 1'),
+          _cardTypeTwo(),
           _cardTypeOne(),
-          _cardTypeTwo('Air Jordan 1'),
+          _cardTypeTwo(),
         ],
         padding: EdgeInsets.all(10),
       ),
@@ -56,7 +56,10 @@ Widget _cardTypeOne() {
   );
 }
 
-Widget _cardTypeTwo(String linkName) {
+Widget _cardTypeTwo() {
+  var _rand = new Random();
+  var _randNumber = _rand.nextInt(200);
+
   return Card(
     color: cardBGColor,
     clipBehavior: Clip.antiAlias,
@@ -65,13 +68,13 @@ Widget _cardTypeTwo(String linkName) {
       children: [
         FadeInImage(
           placeholder: AssetImage('assets/loading.gif'),
-          image: NetworkImage(links[linkName]),
+          image: NetworkImage(
+              'https://picsum.photos/1280/720/?image=$_randNumber'),
           height: 300,
           width: 400,
           fit: BoxFit.cover,
         ),
         Container(
-          child: Text(linkName),
           color: cardBGColor,
           padding: EdgeInsets.all(20.0),
         ),
