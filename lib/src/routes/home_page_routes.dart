@@ -8,6 +8,7 @@ import 'package:components/src/pages/avatar_page.dart';
 import 'package:components/src/pages/card_page.dart';
 import 'package:components/src/pages/animated_container.dart';
 import 'package:components/src/pages/input_page.dart';
+import 'package:components/src/pages/slider_page.dart';
 
 final routes = <String, WidgetBuilder>{
   'home': (BuildContext context) => HomePage(),
@@ -16,6 +17,7 @@ final routes = <String, WidgetBuilder>{
   'card': (BuildContext context) => CardPage(),
   'animatedContainer': (BuildContext context) => AnimatedContainerPage(),
   'inputs': (BuildContext context) => InputPage(),
+  'slider': (BuildContext context) => SliderPage(),
 };
 
 final blankRoute =

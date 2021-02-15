@@ -26,5 +26,10 @@
             "icon" : "input",
             "text": "Inputs"
         }
+        {
+            "route" : "slider",
+            "icon" : "slider",
+            "text": "Slider"
+        }
     ]
 }

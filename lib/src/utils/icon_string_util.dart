@@ -8,6 +8,7 @@ final _icons = <String, IconData>{
   "donut_large": Icons.donut_large,
   "input": Icons.input,
   "default_arrow": Icons.arrow_forward_ios,
+  "slider": Icons.slow_motion_video_rounded,
 };
 
 Icon getIcon(String iconName) {
