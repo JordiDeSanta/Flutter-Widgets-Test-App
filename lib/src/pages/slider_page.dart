@@ -11,6 +11,7 @@ class SliderPage extends StatefulWidget {
 
 class _SliderPageState extends State<SliderPage> {
   double _sliderValue = 200;
+  bool _canChangeScale = true;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class _SliderPageState extends State<SliderPage> {
         child: Column(
           children: [
             _createSlider(),
+            _createChekbox(),
             SizedBox(height: 100),
             _createImage(),
           ],
@@ -40,9 +42,11 @@ class _SliderPageState extends State<SliderPage> {
       divisions: 10,
       label: 'Image Scale',
       onChanged: (alpha) {
-        setState(() {
-          _sliderValue = alpha;
-        });
+        if (_canChangeScale) {
+          setState(() {
+            _sliderValue = alpha;
+          });
+        }
       },
       activeColor: iconsColor,
     );
@@ -62,6 +66,19 @@ class _SliderPageState extends State<SliderPage> {
           image: AssetImage('assets/scalable-image.jpeg'),
           fit: BoxFit.cover,
         ),
+      ),
+    );
+  }
+
+  Widget _createChekbox() {
+    return Center(
+      child: Checkbox(
+        value: _canChangeScale,
+        onChanged: (alpha) {
+          setState(() {
+            _canChangeScale = alpha;
+          });
+        },
       ),
     );
   }
