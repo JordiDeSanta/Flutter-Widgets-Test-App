@@ -53,13 +53,16 @@ class _SliderPageState extends State<SliderPage> {
       curve: Curves.easeIn,
       duration: Duration(milliseconds: 400),
       width: _sliderValue,
-      height: _sliderValue,
-      decoration: BoxDecoration(
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
-          image: DecorationImage(
-            image: AssetImage('assets/scalable-image.jpeg'),
-            fit: BoxFit.contain,
-          )),
+        ),
+        child: Image(
+          image: AssetImage('assets/scalable-image.jpeg'),
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }
