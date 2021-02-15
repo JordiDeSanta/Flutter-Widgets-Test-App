@@ -25,7 +25,7 @@ class _SliderPageState extends State<SliderPage> {
         child: Column(
           children: [
             _createSlider(),
-            _createChekbox(),
+            _createSwitch(),
             SizedBox(height: 100),
             _createImage(),
           ],
@@ -70,8 +70,8 @@ class _SliderPageState extends State<SliderPage> {
     );
   }
 
-  Widget _createChekbox() {
-    return CheckboxListTile(
+  Widget _createSwitch() {
+    return SwitchListTile(
       title: Text('Lock the scale: '),
       value: _canChangeScale,
       onChanged: (alpha) {
