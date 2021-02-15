@@ -25,7 +25,8 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
         backgroundColor: appBarColor,
       ),
       body: Center(
-        child: Container(
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 700),
           width: _width,
           height: _height,
           decoration: BoxDecoration(
@@ -44,8 +45,8 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
 
   void _change() {
     final _rand = new Random();
-    double _maxWidth = 500.0;
-    double _maxHeight = 500.0;
+    double _maxWidth = 300.0;
+    double _maxHeight = 300.0;
 
     setState(() {
       _width = _rand.nextDouble() * _maxWidth;
