@@ -1,4 +1,5 @@
 // Third Party
+import 'dart:async';
 import 'package:components/src/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,7 @@ class _ListViewPageState extends State<ListViewPage> {
   ScrollController _scrollController = new ScrollController();
   List<int> _numberList = new List();
   int _lastItem = 0;
+  bool _isLoading = false;
 
   @override
   void initState() {
@@ -23,7 +25,7 @@ class _ListViewPageState extends State<ListViewPage> {
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
-        _add10();
+        fetchData();
       }
     });
   }
@@ -35,7 +37,12 @@ class _ListViewPageState extends State<ListViewPage> {
         title: Text('List View Page'),
         backgroundColor: appBarColor,
       ),
-      body: _createList(),
+      body: Stack(
+        children: [
+          _createList(),
+          _createLoad(),
+        ],
+      ),
     );
   }
 
@@ -62,5 +69,36 @@ class _ListViewPageState extends State<ListViewPage> {
     }
 
     setState(() {});
+  }
+
+  Future fetchData() async {
+    _isLoading = true;
+
+    setState(() {});
+
+    final duration = new Duration(seconds: 3);
+    new Timer(duration, httprequest);
+  }
+
+  void httprequest() {
+    _isLoading = false;
+
+    _add10();
+  }
+
+  Widget _createLoad() {
+    if (_isLoading) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            CircularProgressIndicator(),
+            SizedBox(height: 50),
+          ],
+        ),
+      );
+    } else {
+      return Container();
+    }
   }
 }
