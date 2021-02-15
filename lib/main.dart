@@ -1,5 +1,6 @@
 // Third Party
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 // Own
 import 'package:components/src/routes/home_page_routes.dart';
@@ -19,6 +20,14 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: (settings) {
         return blankRoute;
       },
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', ''), // English, no country codes
+      ],
     );
   }
 }
