@@ -22,7 +22,7 @@
             "text": "Animated"
         },
         {
-            "inputs" : "animatedContainer",
+            "route" : "inputs",
             "icon" : "input",
             "text": "Inputs"
         }
