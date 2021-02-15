@@ -30,6 +30,11 @@
             "route" : "slider",
             "icon" : "slider",
             "text": "Slider"
+        },
+        {
+            "route" : "listview",
+            "icon" : "list",
+            "text": "List"
         }
     ]
 }
