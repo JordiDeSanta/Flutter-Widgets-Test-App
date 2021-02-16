@@ -53,19 +53,34 @@ class _ListViewPageState extends State<ListViewPage> {
   }
 
   Widget _createList() {
-    return ListView.builder(
-      controller: _scrollController,
-      itemCount: _numberList.length,
-      itemBuilder: (BuildContext context, int i) {
-        final _image = _numberList[i];
-        return FadeInImage(
-          height: 200,
-          placeholder: AssetImage('assets/loading.gif'),
-          image: NetworkImage('https://picsum.photos/1280/720/?image=$_image'),
-          fit: BoxFit.cover,
-        );
-      },
+    return RefreshIndicator(
+      onRefresh: _getPageOne,
+      child: ListView.builder(
+        controller: _scrollController,
+        itemCount: _numberList.length,
+        itemBuilder: (BuildContext context, int i) {
+          final _image = _numberList[i];
+          return FadeInImage(
+            height: 200,
+            placeholder: AssetImage('assets/loading.gif'),
+            image:
+                NetworkImage('https://picsum.photos/1280/720/?image=$_image'),
+            fit: BoxFit.cover,
+          );
+        },
+      ),
     );
+  }
+
+  Future<Null> _getPageOne() async {
+    Duration duration = Duration(seconds: 2);
+    new Timer(duration, () {
+      _numberList.clear();
+      _lastItem++;
+      _add10();
+    });
+
+    return Future.delayed(duration);
   }
 
   void _add10() {
@@ -92,9 +107,9 @@ class _ListViewPageState extends State<ListViewPage> {
     setState(() {});
 
     _scrollController.animateTo(
-      _scrollController.position.pixels + 100,
-      duration: Duration(milliseconds: 400),
-      curve: Curves.fastOutSlowIn,
+      _scrollController.position.pixels + 200,
+      duration: Duration(seconds: 3),
+      curve: Curves.easeIn,
     );
 
     _add10();
