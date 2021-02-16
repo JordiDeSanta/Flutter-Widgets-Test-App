@@ -31,6 +31,12 @@ class _ListViewPageState extends State<ListViewPage> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _scrollController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -71,17 +77,25 @@ class _ListViewPageState extends State<ListViewPage> {
     setState(() {});
   }
 
-  Future fetchData() async {
+  Future<Null> fetchData() async {
     _isLoading = true;
 
     setState(() {});
 
-    final duration = new Duration(seconds: 3);
-    new Timer(duration, httprequest);
+    Duration durationOfRequest = Duration(seconds: 3);
+    new Timer(durationOfRequest, httprequest);
   }
 
   void httprequest() {
     _isLoading = false;
+
+    setState(() {});
+
+    _scrollController.animateTo(
+      _scrollController.position.pixels + 100,
+      duration: Duration(milliseconds: 400),
+      curve: Curves.fastOutSlowIn,
+    );
 
     _add10();
   }
